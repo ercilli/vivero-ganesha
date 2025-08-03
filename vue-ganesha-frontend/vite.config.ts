@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  base: process.env.NODE_ENV === 'production' ? '/vivero-ganesha/' : '/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
@@ -15,6 +16,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    assetsDir: 'assets'
   }
 })
